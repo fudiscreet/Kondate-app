@@ -1,0 +1,45 @@
+services:
+  frontend:
+    image: node:24
+    container_name: kondate-frontend
+    working_dir: /kondate/frontend
+    tty: true
+    command: sleep infinity
+    volumes:
+      - .:/kondate
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    image: mcr.microsoft.com/azure-functions/node:4-node24
+    container_name: kondate-backend
+    working_dir: /kondate/backend
+    tty: true
+    command: sleep infinity
+    volumes:
+      - .:/kondate
+    ports:
+      - "7071:7071"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17
+    container_name: kondate-db
+    working_dir: /kondate/db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - .:/kondate
+
+volumes:
+  pgdata:

@@ -1,0 +1,39 @@
+{
+  "name": "kondate-app",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "backend",
+  "workspaceFolder": "/kondate",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [3000, 7071, 5432],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "MS-CEINTL.vscode-language-pack-ja",
+        "vivaxy.vscode-conventional-commits",
+        "oderwat.indent-rainbow",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-containers",
+        "eamodio.gitlens",
+        "hediet.vscode-drawio",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "PKief.material-icon-theme",
+        "EditorConfig.EditorConfig",
+        "Arjun.swagger-viewer"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.exclude": {
+          "**/node_modules": true,
+          "**/dist": true
+        }
+      }
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/post_create.sh",
+  "remoteEnv": {
+    "TZ": "Asia/Tokyo"
+  }
+}
