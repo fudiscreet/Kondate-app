@@ -1,0 +1,26 @@
+# EditorConfig: https://EditorConfig.org
+root = true
+
+[*]
+# See also: https://github.com/microsoft/TypeScript/blob/main/.editorconfig
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+quote_type = single
+
+[*.sh]
+end_of_line = lf
+
+[Makefile]
+indent_size = 4
+indent_style = tab
+
+[*.{md,markdown}]
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+[*.json]
+insert_final_newline = false
