@@ -2,6 +2,7 @@
   "name": "kondate-app",
   "dockerComposeFile": "../docker-compose.yaml",
   "service": "backend",
+  "remoteUser": "root",
   "workspaceFolder": "/kondate",
   "shutdownAction": "stopCompose",
   "forwardPorts": [3000, 7071, 5432],
@@ -31,9 +32,9 @@
       }
     }
   },
-
   "postCreateCommand": "bash .devcontainer/post_create.sh",
   "remoteEnv": {
+    "PATH": "/usr/bin:/usr/local/bin:/bin:/sbin:/usr/sbin:/home/node/.npm-global/bin",
     "TZ": "Asia/Tokyo"
   }
 }
